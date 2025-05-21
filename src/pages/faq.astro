@@ -9,44 +9,58 @@ import Layout from '../layouts/BlogPost.astro';
   heroImage="/blog-placeholder-about.jpg"
 >
   <section class="faq">
-    <details>
-      <summary>What is Plex?</summary>
-      <p>Plex is a free service that allows you to share your media. By subscribing to a membership, you are given access to my server, which includes thousands of Movies and TV Shows.</p>
-    </details>
+    <h3>What is Plex?</h3>
+    <p>Plex is a free service that allows you to share your media. By subscribing to a membership, you are given access to my server, which includes thousands of Movies and TV Shows.</p>
 
-    <details>
-      <summary>Where is Plex available?</summary>
-      <p>Plex is available in almost every country in the world. As long as you have internet access and a smart device, you will be able to access the server.</p>
-    </details>
+    <h3>Where is Plex available?</h3>
+    <p>Plex is available in almost every country in the world. As long as you have internet access and a smart device, you will be able to access the server.</p>
 
-    <details>
-      <summary>Where can I watch Plex?</summary>
-      <p>You can watch Plex instantly online from your personal computer or any internet-connected device that offers the Plex app. This includes Amazon Fire TV, Android TV, Apple TV, Chromecast, Roku, smart TVs (LG, Hisense, Samsung, VIZIO), smartphones, tablets, game consoles, and more.</p>
-    </details>
+    <h3>Where can I watch Plex?</h3>
+    <p>You can watch Plex instantly online from your personal computer or any internet-connected device that offers the Plex app. This includes Amazon Fire TV, Android TV, Apple TV, Chromecast, Roku, smart TVs (LG, Hisense, Samsung, VIZIO), smartphones, tablets, game consoles, and more.</p>
 
-    <details>
-      <summary>How much does it cost?</summary>
-      <p>Memberships are currently priced at $10 per month.</p>
-    </details>
+    <h3>How much does it cost?</h3>
+    <p>Memberships are currently priced at $10 per month.</p>
 
-    <details>
-      <summary>How do I subscribe?</summary>
-      <p>Just click on any of the "Subscribe Now" buttons. Once we receive confirmation, we will provide an account.</p>
-    </details>
+    <h3>How do I subscribe?</h3>
+    <p>Just click the <a href="https://sharkvalleyplex.com" style="color: #8380F5; font-weight: 600;">Subscribe</a> button on the home page. Once we receive confirmation, we will provide an account.</p>
 
-    <details>
-      <summary>Do I need an account?</summary>
-      <p>No, please do not make a Plex account. We will provide one for you.</p>
-    </details>
+    <h3>Do I need an account?</h3>
+    <p>No, please do not make a Plex account. We will provide one for you.</p>
 
-    <details>
-      <summary>What if something I want to watch is not available?</summary>
-      <p>You can request any Movie or TV Show, and we will add it to our platform, usually within 24 hours.</p>
-    </details>
+    <h3>What if something I want to watch is not available?</h3>
+    <p>You can request any Movie or TV Show, and we will add it to our platform, usually within 24 hours.</p>
 
-    <details>
-      <summary>Are there any restrictions or rules?</summary>
-      <p>Please do not share your account with anyone outside of your household. If your friends are interested in the service, refer them here.</p>
-    </details>
+    <h3>Are there any restrictions or rules?</h3>
+    <p>Please do not share your account with anyone outside of your household. If your friends are interested in the service, refer them here.</p>
   </section>
+
+  <style>
+    .faq {
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      color: #333;
+    }
+    .faq h3 {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #4a47f5; /* a professional blue tone */
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .faq p {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    /* Optional subtle separator between items */
+    .faq h3:not(:first-child) {
+      border-top: 1px solid #eee;
+      padding-top: 1.5rem;
+    }
+  </style>
 </Layout>
