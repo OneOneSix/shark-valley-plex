@@ -4,9 +4,9 @@
 import '../styles/global.css';
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string;
+  description: string;
+  image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -45,3 +45,15 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Bookmark Icons -->
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+<link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/images/android-chrome-512x512.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+
+<!-- Bookmark name -->
+<meta name="apple-mobile-web-app-title" content="Shark Valley Plex" />
+<meta name="application-name" content="Shark Valley Plex" />
