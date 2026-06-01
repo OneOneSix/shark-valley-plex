@@ -1,4 +1,4 @@
-quest.e---
+---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -14,57 +14,78 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <Header />
     <main>
       <div style="text-align: center; margin-top: 2rem;">
-        <img 
-          src="/images/logo_stacked.svg" 
-          alt="Shark Valley Plex Logo" 
-          style="max-width: 350px; height: auto;" 
+        <img
+          src="/images/logo_stacked.svg"
+          alt="Shark Valley Plex Logo"
+          style="max-width: 350px; height: auto;"
         />
       </div>
 
-      <p style="text-align: center;">
-        Shark Valley Plex is a subscription based streaming service designed to seamlessly integrate all your favorite streaming platforms into one easy to use experience.
+      <p style="text-align: center; margin: 1rem auto; max-width: 480px;">
+        Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.
       </p>
 
-      <img 
-        src="/images/discover.jpg" 
-        alt="Discover Image" 
-        style="max-width: 100%; height: auto; display: block; margin: 2rem auto;" 
-      />
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 700px; margin: 2rem auto; padding: 0 1rem;">
 
-      <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
-        <li>
-          <img src="/images/emoji_image.png" alt="Check" style="width: 18px; height: 18px; vertical-align: middle; margin-right: 2px;" />
-          Unlimited Access to Movies and Shows
-        </li>
-        <li>
-          <img src="/images/emoji_image.png" alt="Check" style="width: 18px; height: 18px; vertical-align: middle; margin-right: 2px;" />
-          New Titles Added Daily
-        </li>
-        <li>
-          <img src="/images/emoji_image.png" alt="Check" style="width: 18px; height: 18px; vertical-align: middle; margin-right: 2px;" />
-          Request Movies and TV Shows
-        </li>
-        <li>
-          <img src="/images/emoji_image.png" alt="Check" style="width: 18px; height: 18px; vertical-align: middle; margin-right: 2px;" />
-          Available On All Smart Devices
-        </li>
-      </ul>
+        <!-- Plex Card -->
+        <div style="background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column;">
+          <h2 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">Shark Valley Plex</h2>
+          <p style="font-size: 0.85rem; opacity: 0.55; margin-bottom: 1rem; line-height: 1.6;">Unlimited movies and TV shows, new titles added daily.</p>
+          <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; flex: 1;">
+            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
+              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />Unlimited movies &amp; shows
+            </li>
+            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
+              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />New titles added daily
+            </li>
+            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
+              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />Request new content
+            </li>
+            <li style="font-size: 0.85rem; opacity: 0.65;">
+              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />All smart devices
+            </li>
+          </ul>
+          <a
+            href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01"
+            rel="noopener noreferrer"
+            style="display: block; text-align: center; background: #8380F5; color: #fff; text-decoration: none; padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500;"
+          >
+            Subscribe to Plex
+          </a>
+        </div>
 
-      <div style="text-align: center; margin: 2rem 0;">
-        <a 
-          href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01" 
-          rel="noopener noreferrer"
-          style="display: inline-block; margin-bottom: 1rem;"
-        >
-          <img 
-            src="/images/button_subscribe.png" 
-            alt="Subscribe with Stripe" 
-            style="max-width: 200px; height: auto; cursor: pointer;" 
-          />
-        </a>
+        <!-- Audiobooks Card -->
+        <div style="background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column;">
+          <h2 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">Audiobooks</h2>
+          <p style="font-size: 0.85rem; opacity: 0.55; margin-bottom: 1rem; line-height: 1.6;">A growing library of audiobooks, available on demand.</p>
+          <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; flex: 1;">
+            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
+              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />Thousands of audiobooks
+            </li>
+            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
+              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />New titles added regularly
+            </li>
+            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
+              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />Request new titles
+            </li>
+            <li style="font-size: 0.85rem; opacity: 0.65;">
+              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />All smart devices
+            </li>
+          </ul>
+          <a
+            href="YOUR_AUDIOBOOKS_STRIPE_LINK"
+            rel="noopener noreferrer"
+            style="display: block; text-align: center; background: #1d9e75; color: #fff; text-decoration: none; padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500;"
+          >
+            Subscribe to Audiobooks
+          </a>
+        </div>
 
-        <p style="margin-top: 1rem; font-size: 0.95rem;">
-          Already a member? <a href="https://billing.stripe.com/p/login/aFadR9g1z8J9c08eWEfjG00" style="color: #8380F5; text-decoration: none;"><strong>Manage Subscription</strong></a>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 2rem;">
+        <p style="font-size: 0.9rem; opacity: 0.5;">
+          Already a member? <a href="https://billing.stripe.com/p/login/aFadR9g1z8J9c08eWEfjG00" style="color: #8380F5; text-decoration: none;"><strong>Manage Billing</strong></a>
         </p>
       </div>
     </main>
