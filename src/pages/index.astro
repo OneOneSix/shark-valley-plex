@@ -19,41 +19,38 @@
     nav {
       background-color: #1f2937;
       border-bottom: 1px solid #374151;
-      padding: 0 24px;
-      height: 64px;
+      padding: 16px 24px;
       display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 12px;
     }
 
     .nav-inner {
-      width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
     }
 
     .nav-logo {
-      font-size: 17px;
-      font-weight: 600;
-      color: #fff;
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      white-space: nowrap;
-      letter-spacing: 0.01em;
     }
 
-    .nav-logo span {
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .nav-logo img {
+      height: 48px;
+      width: auto;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 4px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .nav-links a {
@@ -81,17 +78,7 @@
       white-space: nowrap;
     }
 
-    /* LOGO IMAGE */
-    .logo-img {
-      text-align: center;
-      padding: 48px 24px 0;
-    }
 
-    .logo-img img {
-      max-width: 200px;
-      width: 100%;
-      height: auto;
-    }
 
     /* PAGE */
     .page {
@@ -251,11 +238,10 @@
 
     /* MOBILE */
     @media (max-width: 640px) {
-      nav { padding: 0 16px; height: 56px; }
-      .nav-links { gap: 2px; }
-      .nav-links a { font-size: 12px; padding: 6px 8px; }
-      .btn-request { padding: 6px 12px; font-size: 13px; }
-      .logo-img { padding: 32px 16px 0; }
+      nav { padding: 12px 16px; }
+      .nav-logo img { height: 36px; }
+      .nav-links a { font-size: 12px; padding: 5px 8px; }
+      .btn-request { padding: 6px 12px; font-size: 12px; }
       .page { padding: 0 16px; }
       .hero { padding: 24px 0 28px; }
       .hero h1 { font-size: 30px; }
@@ -277,10 +263,6 @@
       </div>
     </div>
   </nav>
-
-  <div class="logo-img">
-    <img src="/images/logo_stacked.svg" alt="Shark Valley Plex" />
-  </div>
 
   <main class="page">
 
