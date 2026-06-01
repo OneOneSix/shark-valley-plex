@@ -1,75 +1,337 @@
-llyseerr---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shark Valley Plex</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<header>
-  <nav>
-    <h2>
-      <a href="/">
-        <img src="/images/os_logo_filled.png" alt="Shark Valley Plex Logo" height="40" />
-      </a>
-    </h2>
-    <div class="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/faq">FAQ</HeaderLink>
-      <HeaderLink href="https://stats.uptimerobot.com/9vb3fSvvMq">Status</HeaderLink>
-      <HeaderLink href="https://request.sharkvalleyplex.com">Request</HeaderLink>
-    </div>
-</header>
-
-<style>
-  header {
-    margin: 0;
-    padding: 0 1em;
-    background: #111827; /* dark background */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    color: #e5e9f0; /* lighter text for contrast */
-  }
-
-  h2 {
-    margin: 0;
-    font-size: 1em;
-  }
-
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-    color: #e5e9f0;
-  }
-
-  h2 img {
-    height: 40px; /* Adjust as needed */
-    vertical-align: middle;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  nav a {
-    padding: 1em 0.5em;
-    color: #e5e9f0; /* lighter link color */
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
-
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
-
-  .social-links,
-  .social-links a {
-    display: flex;
-    color: #e5e9f0; /* make sure social icons inherit correct color */
-  }
-
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
+    body {
+      background-color: #111827;
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
     }
-  }
-</style>
+
+    /* NAV */
+    nav {
+      background-color: #1f2937;
+      border-bottom: 1px solid #374151;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-logo span {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: #9ca3af;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      background: #374151;
+      color: #fff;
+    }
+
+    .btn-request {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff !important;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* LOGO IMAGE */
+    .logo-img {
+      text-align: center;
+      padding: 48px 24px 0;
+    }
+
+    .logo-img img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 32px 0 40px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #f9fafb;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .gradient {
+      display: block;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: #9ca3af;
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding-bottom: 48px;
+    }
+
+    .card {
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 12px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover { border-color: #4b5563; }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .card-icon i { font-size: 24px; }
+
+    .icon-indigo { background: rgba(99,102,241,0.15); }
+    .icon-indigo i { color: #6366f1; }
+
+    .icon-teal { background: rgba(20,184,166,0.15); }
+    .icon-teal i { color: #14b8a6; }
+
+    .card h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #f3f4f6;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .features li {
+      font-size: 13px;
+      color: #9ca3af;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .features li i { font-size: 14px; }
+    .features li i.indigo { color: #6366f1; }
+    .features li i.teal { color: #14b8a6; }
+
+    .btn-sub {
+      display: block;
+      text-align: center;
+      padding: 11px 0;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: auto;
+    }
+
+    .btn-indigo {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff;
+    }
+
+    .btn-teal {
+      background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+      color: #fff;
+    }
+
+    /* FOOTER NOTE */
+    .footer-note {
+      text-align: center;
+      padding: 0 0 40px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .footer-note a {
+      color: #6b7280;
+      text-decoration: underline;
+    }
+
+    .footer-note a:hover { color: #9ca3af; }
+
+    /* FOOTER */
+    footer {
+      background: #1f2937;
+      border-top: 1px solid #374151;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; height: 56px; }
+      .nav-links { gap: 2px; }
+      .nav-links a { font-size: 12px; padding: 6px 8px; }
+      .btn-request { padding: 6px 12px; font-size: 13px; }
+      .logo-img { padding: 32px 16px 0; }
+      .page { padding: 0 16px; }
+      .hero { padding: 24px 0 28px; }
+      .hero h1 { font-size: 30px; }
+      .cards { grid-template-columns: 1fr; }
+      .footer-note { padding: 0 0 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">Shark Valley <span>Plex</span></a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/faq">FAQ</a>
+        <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
+        <a class="btn-request" href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">Request</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="logo-img">
+    <img src="/images/logo_stacked.svg" alt="Shark Valley Plex" />
+  </div>
+
+  <main class="page">
+
+    <div class="hero">
+      <h1>Your All-in-One<span class="gradient">Streaming &amp; Listening Hub</span></h1>
+      <p>Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon icon-indigo">
+          <i class="ti ti-device-tv" aria-hidden="true"></i>
+        </div>
+        <h2>Shark Valley Plex</h2>
+        <p class="card-desc">Movies and TV shows from all your favorite platforms. Watch anytime, anywhere.</p>
+        <ul class="features">
+          <li><i class="ti ti-check indigo" aria-hidden="true"></i> Unlimited Access to Movies and TV Shows</li>
+          <li><i class="ti ti-check indigo" aria-hidden="true"></i> New Titles Added Daily</li>
+          <li><i class="ti ti-check indigo" aria-hidden="true"></i> Request Movies and TV Shows</li>
+          <li><i class="ti ti-check indigo" aria-hidden="true"></i> Available on All Smart Devices</li>
+        </ul>
+        <a class="btn-sub btn-indigo" href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01" rel="noopener noreferrer">Subscribe to Plex</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon icon-teal">
+          <i class="ti ti-headphones" aria-hidden="true"></i>
+        </div>
+        <h2>Audiobooks</h2>
+        <p class="card-desc">A curated library of audiobooks across every genre. Listen anytime, anywhere.</p>
+        <ul class="features">
+          <li><i class="ti ti-check teal" aria-hidden="true"></i> Unlimited Access to Audiobooks</li>
+          <li><i class="ti ti-check teal" aria-hidden="true"></i> New Titles Added Daily</li>
+          <li><i class="ti ti-check teal" aria-hidden="true"></i> Request Audiobooks</li>
+          <li><i class="ti ti-check teal" aria-hidden="true"></i> Available on All Smart Devices</li>
+        </ul>
+        <a class="btn-sub btn-teal" href="YOUR_AUDIOBOOKS_STRIPE_LINK" rel="noopener noreferrer">Subscribe to Audiobooks</a>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      Already a member? <a href="https://billing.stripe.com/p/login/aFadR9g1z8J9c08eWEfjG00">Manage billing</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Shark Valley Plex. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
