@@ -1,3 +1,6 @@
+---
+import Header from '../components/Header.astro';
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,68 +17,6 @@
       color: #fff;
       font-family: system-ui, -apple-system, sans-serif;
       min-height: 100vh;
-    }
-
-    /* NAV */
-    nav {
-      background-color: #1f2937;
-      border-bottom: 1px solid #374151;
-      padding: 0 24px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-inner {
-      width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-
-    .nav-logo img {
-      height: 40px;
-      width: auto;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      color: #9ca3af;
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover {
-      background: #374151;
-      color: #fff;
-    }
-
-    .btn-request {
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      color: #fff !important;
-      padding: 7px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      white-space: nowrap;
     }
 
     /* LOGO IMAGE */
@@ -262,20 +203,7 @@
   </style>
 </head>
 <body>
-
-  <nav>
-    <div class="nav-inner">
-      <a class="nav-logo" href="/">
-        <img src="/images/os_logo_filled.png" alt="Shark Valley Plex Logo" />
-      </a>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/faq">FAQ</a>
-        <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
-        <a class="btn-request" href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">Request</a>
-      </div>
-    </div>
-  </nav>
+  <Header />
 
   <div class="logo-img">
     <img src="/images/logo_stacked.svg" alt="Shark Valley Plex" />
