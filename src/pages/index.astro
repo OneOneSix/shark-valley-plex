@@ -107,11 +107,20 @@
     }
 
     .hero h1 {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 14px;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
       color: #f9fafb;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .gradient {
+      display: block;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero p {
@@ -249,7 +258,7 @@
       .logo-img { padding: 32px 16px 0; }
       .page { padding: 0 16px; }
       .hero { padding: 24px 0 28px; }
-      .hero h1 { font-size: 24px; }
+      .hero h1 { font-size: 30px; }
       .cards { grid-template-columns: 1fr; }
       .footer-note { padding: 0 0 32px; }
     }
@@ -276,7 +285,7 @@
   <main class="page">
 
     <div class="hero">
-      <h1>Your all-in-one streaming &amp; listening hub</h1>
+      <h1>Your All-in-One<span class="gradient">Streaming &amp; Listening Hub</span></h1>
       <p>Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.</p>
     </div>
 
@@ -287,7 +296,7 @@
           <i class="ti ti-device-tv" aria-hidden="true"></i>
         </div>
         <h2>Shark Valley Plex</h2>
-        <p class="card-desc">Movies and TV shows from all your favorite platforms. Watch anytime, anywhere.</p>
+        <p class="card-desc">Movies and TV shows from all your favorite platforms, seamlessly integrated into one easy-to-use experience. Watch anytime, anywhere.</p>
         <ul class="features">
           <li><i class="ti ti-check indigo" aria-hidden="true"></i> Unlimited movies &amp; shows</li>
           <li><i class="ti ti-check indigo" aria-hidden="true"></i> New titles added daily</li>
@@ -302,7 +311,7 @@
           <i class="ti ti-headphones" aria-hidden="true"></i>
         </div>
         <h2>Audiobooks</h2>
-        <p class="card-desc">A curated library of audiobooks across every genre. Listen anytime, anywhere.</p>
+        <p class="card-desc">A curated library of audiobooks across every genre, seamlessly integrated into one easy-to-use experience. Listen anytime, anywhere.</p>
         <ul class="features">
           <li><i class="ti ti-check teal" aria-hidden="true"></i> Thousands of audiobooks</li>
           <li><i class="ti ti-check teal" aria-hidden="true"></i> New titles added regularly</li>
