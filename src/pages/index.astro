@@ -82,6 +82,41 @@
       white-space: nowrap;
     }
 
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      padding: 32px 24px 0;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: #f9fafb;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-number span {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     /* LOGO IMAGE */
     .logo-img {
       text-align: center;
@@ -253,6 +288,8 @@
     /* MOBILE */
     @media (max-width: 640px) {
       nav { padding: 0 16px; height: 56px; }
+      .stats { gap: 24px; padding: 24px 16px 0; }
+      .stat-number { font-size: 24px; }
       .nav-links { gap: 2px; }
       .nav-links a { font-size: 12px; padding: 6px 8px; }
       .btn-request { padding: 6px 12px; font-size: 13px; }
@@ -278,6 +315,21 @@
       </div>
     </div>
   </nav>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number"><span>3,000+</span></div>
+      <div class="stat-label">Movies</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number"><span>1,500+</span></div>
+      <div class="stat-label">TV Shows</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number"><span>100+</span></div>
+      <div class="stat-label">Audiobooks</div>
+    </div>
+  </div>
 
   <div class="logo-img">
     <img src="/images/logo_stacked.svg" alt="Shark Valley Plex" />
