@@ -11,16 +11,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      html, body {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
+      html { overflow-x: hidden; }
 
       body {
         background-color: #111827;
         color: #fff;
         font-family: system-ui, -apple-system, sans-serif;
         min-height: 100vh;
+        overflow-x: hidden;
       }
 
       /* NAV */
@@ -235,28 +233,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         color: #4b5563;
       }
 
-      /* MOBILE */
+      /* MOBILE — stack cards, hide nav links */
       @media (max-width: 600px) {
-        nav {
-          padding: 0 16px;
-          height: 56px;
-        }
-        .nav-links a:not(.btn-request) {
-          display: none;
-        }
-        .btn-request {
-          padding: 6px 12px !important;
-          font-size: 13px;
-        }
-        .page {
-          padding: 0 16px;
-        }
-        .hero {
-          padding: 36px 0 24px;
-        }
-        .cards {
-          grid-template-columns: 1fr;
-        }
+        nav { padding: 0 16px; height: 56px; }
+        .nav-links a:not(.btn-request) { display: none; }
+        .btn-request { padding: 6px 12px !important; font-size: 13px; }
+        .page { padding: 0 16px; }
+        .hero { padding: 36px 0 24px; }
+        .cards { grid-template-columns: 1fr; }
       }
     </style>
   </head>
