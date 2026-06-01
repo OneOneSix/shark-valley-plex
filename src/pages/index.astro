@@ -1,7 +1,5 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -11,84 +9,260 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <Header />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background: #0a0a0f;
+        color: #fff;
+        font-family: system-ui, sans-serif;
+        min-height: 100vh;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 32px;
+        border-bottom: 0.5px solid rgba(255,255,255,0.1);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-logo img {
+        height: 32px;
+        width: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+        color: rgba(255,255,255,0.65);
+        text-decoration: none;
+      }
+
+      .nav-links a:hover { color: #fff; }
+
+      .btn-request {
+        background: #1a8fff;
+        color: #fff !important;
+        font-size: 13px;
+        padding: 7px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 56px 32px 40px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 12px;
+        line-height: 1.3;
+      }
+
+      .hero p {
+        font-size: 14px;
+        color: rgba(255,255,255,0.55);
+        max-width: 420px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 8px 32px 40px;
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: #12121a;
+        border: 0.5px solid rgba(255,255,255,0.1);
+        border-radius: 14px;
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        font-size: 22px;
+      }
+
+      .card-icon.blue { background: rgba(26,143,255,0.15); color: #1a8fff; }
+      .card-icon.teal { background: rgba(29,158,117,0.15); color: #1d9e75; }
+
+      .card h2 {
+        font-size: 17px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+
+      .card > p {
+        font-size: 13px;
+        color: rgba(255,255,255,0.5);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex: 1;
+      }
+
+      .features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .features li {
+        font-size: 12px;
+        color: rgba(255,255,255,0.55);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .features li img {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+
+      .btn-subscribe {
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-subscribe.blue { background: #1a8fff; color: #fff; }
+      .btn-subscribe.teal { background: #1d9e75; color: #fff; }
+
+      .footer-note {
+        text-align: center;
+        padding: 0 32px 36px;
+      }
+
+      .footer-note p {
+        font-size: 12px;
+        color: rgba(255,255,255,0.35);
+      }
+
+      .footer-note a {
+        color: rgba(255,255,255,0.55);
+        text-decoration: underline;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding: 20px 32px;
+        border-top: 0.5px solid rgba(255,255,255,0.07);
+      }
+
+      .footer-bottom p {
+        font-size: 11px;
+        color: rgba(255,255,255,0.2);
+      }
+
+      @media (max-width: 560px) {
+        .cards { grid-template-columns: 1fr; padding: 8px 16px 40px; }
+        nav { padding: 18px 16px; }
+        .hero { padding: 40px 16px 28px; }
+        .hero h1 { font-size: 22px; }
+        .nav-links gap: 16px;
+      }
+    </style>
+
+    <nav>
+      <div class="nav-logo">
+        <img src="/images/logo_stacked.svg" alt="Shark Valley Plex" />
+      </div>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/faq">FAQ</a>
+        <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
+        <a class="btn-request" href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">Request</a>
+      </div>
+    </nav>
+
     <main>
-      <div style="text-align: center; margin-top: 2rem;">
-        <img
-          src="/images/logo_stacked.svg"
-          alt="Shark Valley Plex Logo"
-          style="max-width: 350px; height: auto;"
-        />
+      <div class="hero">
+        <h1>Your all-in-one streaming &amp; listening hub</h1>
+        <p>Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.</p>
       </div>
 
-      <p style="text-align: center; margin: 1rem auto; max-width: 480px;">
-        Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.
-      </p>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 700px; margin: 2rem auto; padding: 0 1rem;">
+      <div class="cards">
 
         <!-- Plex Card -->
-        <div style="background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column;">
-          <h2 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">Shark Valley Plex</h2>
-          <p style="font-size: 0.85rem; opacity: 0.55; margin-bottom: 1rem; line-height: 1.6;">Unlimited movies and TV shows, new titles added daily.</p>
-          <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; flex: 1;">
-            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
-              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />Unlimited movies &amp; shows
-            </li>
-            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
-              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />New titles added daily
-            </li>
-            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
-              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />Request new content
-            </li>
-            <li style="font-size: 0.85rem; opacity: 0.65;">
-              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />All smart devices
-            </li>
+        <div class="card">
+          <div class="card-icon blue">&#127916;</div>
+          <h2>Shark Valley Plex</h2>
+          <p>Unlimited movies and TV shows, new titles added daily. Available on all smart devices.</p>
+          <ul class="features">
+            <li><img src="/images/emoji_image.png" alt="" />Unlimited movies &amp; shows</li>
+            <li><img src="/images/emoji_image.png" alt="" />New titles added daily</li>
+            <li><img src="/images/emoji_image.png" alt="" />Request new content</li>
+            <li><img src="/images/emoji_image.png" alt="" />All smart devices</li>
           </ul>
-          <a
-            href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01"
-            rel="noopener noreferrer"
-            style="display: block; text-align: center; background: #8380F5; color: #fff; text-decoration: none; padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500;"
-          >
+          <a class="btn-subscribe blue" href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01" rel="noopener noreferrer">
             Subscribe to Plex
           </a>
         </div>
 
         <!-- Audiobooks Card -->
-        <div style="background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column;">
-          <h2 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">Audiobooks</h2>
-          <p style="font-size: 0.85rem; opacity: 0.55; margin-bottom: 1rem; line-height: 1.6;">A growing library of audiobooks, available on demand.</p>
-          <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; flex: 1;">
-            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
-              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />Thousands of audiobooks
-            </li>
-            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
-              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />New titles added regularly
-            </li>
-            <li style="font-size: 0.85rem; opacity: 0.65; margin-bottom: 0.4rem;">
-              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />Request new titles
-            </li>
-            <li style="font-size: 0.85rem; opacity: 0.65;">
-              <img src="/images/emoji_image.png" alt="" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;" />All smart devices
-            </li>
+        <div class="card">
+          <div class="card-icon teal">&#127911;</div>
+          <h2>Audiobooks</h2>
+          <p>A growing library of audiobooks, available on demand. Listen anytime, anywhere.</p>
+          <ul class="features">
+            <li><img src="/images/emoji_image.png" alt="" />Thousands of audiobooks</li>
+            <li><img src="/images/emoji_image.png" alt="" />New titles added regularly</li>
+            <li><img src="/images/emoji_image.png" alt="" />Request new titles</li>
+            <li><img src="/images/emoji_image.png" alt="" />All smart devices</li>
           </ul>
-          <a
-            href="YOUR_AUDIOBOOKS_STRIPE_LINK"
-            rel="noopener noreferrer"
-            style="display: block; text-align: center; background: #1d9e75; color: #fff; text-decoration: none; padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500;"
-          >
+          <a class="btn-subscribe teal" href="YOUR_AUDIOBOOKS_STRIPE_LINK" rel="noopener noreferrer">
             Subscribe to Audiobooks
           </a>
         </div>
 
       </div>
 
-      <div style="text-align: center; margin: 1rem 0 2rem;">
-        <p style="font-size: 0.9rem; opacity: 0.5;">
-          Already a member? <a href="https://billing.stripe.com/p/login/aFadR9g1z8J9c08eWEfjG00" style="color: #8380F5; text-decoration: none;"><strong>Manage Billing</strong></a>
-        </p>
+      <div class="footer-note">
+        <p>Already a member? <a href="https://billing.stripe.com/p/login/aFadR9g1z8J9c08eWEfjG00">Manage billing</a></p>
       </div>
     </main>
-    <Footer />
+
+    <div class="footer-bottom">
+      <p>© 2026 Shark Valley Plex. All rights reserved.</p>
+    </div>
+
   </body>
 </html>
