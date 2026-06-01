@@ -1,17 +1,13 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../layouts/BlogPost.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shark Valley Plex</title>
-  <link rel="icon" type="image/png" href="/images/os_logo_filled.png" />
-  <link rel="stylesheet" href="/styles/global.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<Layout
+  title="Shark Valley Plex"
+  description="Your all-in-one streaming and listening hub."
+>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" slot="head" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-size: 16px !important; line-height: 1.5 !important; background-color: #111827 !important; }
@@ -21,16 +17,6 @@ import Footer from '../components/Footer.astro';
     a { color: inherit; }
     img { border-radius: 0; }
 
-
-
-    body {
-      background-color: #111827;
-      color: #fff;
-      font-family: system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
-    }
-
-    /* LOGO IMAGE */
     .logo-img {
       text-align: center;
       padding: 48px 24px 0;
@@ -42,21 +28,19 @@ import Footer from '../components/Footer.astro';
       height: auto;
     }
 
-    /* PAGE */
     .page {
       max-width: 960px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* HERO */
     .hero {
       text-align: center;
       padding: 32px 0 40px;
     }
 
     .hero h1 {
-      font-size: 48px;
+      font-size: 48px !important;
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: 20px;
@@ -80,7 +64,6 @@ import Footer from '../components/Footer.astro';
       margin: 0 auto;
     }
 
-    /* CARDS */
     .cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -110,15 +93,13 @@ import Footer from '../components/Footer.astro';
     }
 
     .card-icon i { font-size: 24px; }
-
     .icon-indigo { background: rgba(99,102,241,0.15); }
     .icon-indigo i { color: #6366f1; }
-
     .icon-teal { background: rgba(20,184,166,0.15); }
     .icon-teal i { color: #14b8a6; }
 
     .card h2 {
-      font-size: 17px;
+      font-size: 17px !important;
       font-weight: 600;
       color: #f3f4f6;
       margin-bottom: 8px;
@@ -163,17 +144,9 @@ import Footer from '../components/Footer.astro';
       margin-top: auto;
     }
 
-    .btn-indigo {
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      color: #fff;
-    }
+    .btn-indigo { background: linear-gradient(135deg, #6366f1, #a855f7); color: #fff; }
+    .btn-teal { background: linear-gradient(135deg, #14b8a6, #0ea5e9); color: #fff; }
 
-    .btn-teal {
-      background: linear-gradient(135deg, #14b8a6, #0ea5e9);
-      color: #fff;
-    }
-
-    /* FOOTER NOTE */
     .footer-note {
       text-align: center;
       padding: 0 0 40px;
@@ -181,33 +154,24 @@ import Footer from '../components/Footer.astro';
       color: #4b5563;
     }
 
-    .footer-note a {
-      color: #6b7280;
-      text-decoration: underline;
-    }
-
+    .footer-note a { color: #6b7280; text-decoration: underline; }
     .footer-note a:hover { color: #9ca3af; }
 
-    /* MOBILE */
     @media (max-width: 640px) {
       .logo-img { padding: 32px 16px 0; }
       .page { padding: 0 16px; }
       .hero { padding: 24px 0 28px; }
-      .hero h1 { font-size: 30px; }
+      .hero h1 { font-size: 30px !important; }
       .cards { grid-template-columns: 1fr; }
       .footer-note { padding: 0 0 32px; }
     }
   </style>
-</head>
-<body>
-  <Header />
 
   <div class="logo-img">
     <img src="/images/logo_stacked.svg" alt="Shark Valley Plex" />
   </div>
 
-  <main class="page">
-
+  <div class="page">
     <div class="hero">
       <h1>Your All-in-One<span class="gradient">Streaming &amp; Listening Hub</span></h1>
       <p>Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.</p>
@@ -250,10 +214,6 @@ import Footer from '../components/Footer.astro';
     <div class="footer-note">
       Already a member? <a href="https://billing.stripe.com/p/login/aFadR9g1z8J9c08eWEfjG00">Manage billing</a>
     </div>
+  </div>
 
-  </main>
-
-  <Footer />
-
-</body>
-</html>
+</Layout>
