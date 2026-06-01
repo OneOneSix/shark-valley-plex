@@ -7,42 +7,34 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <style>
-      * { box-sizing: border-box; margin: 0; padding: 0; }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       body {
         background: #0a0a0f;
         color: #fff;
-        font-family: system-ui, sans-serif;
+        font-family: system-ui, -apple-system, sans-serif;
         min-height: 100vh;
       }
 
-      .page-wrapper {
-        max-width: 860px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-
+      /* NAV */
       nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 18px 0;
+        padding: 16px 20px;
         border-bottom: 0.5px solid rgba(255,255,255,0.1);
-        max-width: 860px;
-        margin: 0 auto;
-        padding-left: 24px;
-        padding-right: 24px;
       }
 
       .nav-logo {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
         color: #fff;
-        letter-spacing: 0.02em;
         text-decoration: none;
+        white-space: nowrap;
       }
 
       .nav-logo span { color: #8380F5; }
@@ -50,12 +42,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 24px;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
       .nav-links a {
         font-size: 13px;
-        color: rgba(255,255,255,0.65);
+        color: rgba(255,255,255,0.6);
         text-decoration: none;
       }
 
@@ -64,147 +58,138 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       .btn-request {
         background: #1a8fff;
         color: #fff !important;
-        font-size: 13px;
-        padding: 7px 16px;
+        padding: 6px 14px;
         border-radius: 6px;
+        font-size: 13px;
         text-decoration: none;
+        white-space: nowrap;
       }
 
+      /* HERO */
       .hero {
         text-align: center;
-        padding: 56px 0 40px;
+        padding: 48px 20px 32px;
       }
 
       .hero h1 {
-        font-size: 28px;
+        font-size: clamp(20px, 5vw, 28px);
         font-weight: 500;
-        color: #fff;
-        margin-bottom: 12px;
         line-height: 1.3;
+        margin-bottom: 12px;
       }
 
       .hero p {
         font-size: 14px;
-        color: rgba(255,255,255,0.55);
-        max-width: 420px;
-        margin: 0 auto;
+        color: rgba(255,255,255,0.5);
         line-height: 1.7;
+        max-width: 380px;
+        margin: 0 auto;
       }
 
+      /* CARDS */
       .cards {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        padding-bottom: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
       }
 
       .card {
         background: #12121a;
         border: 0.5px solid rgba(255,255,255,0.1);
         border-radius: 14px;
-        padding: 28px 24px;
+        padding: 24px 20px;
         display: flex;
         flex-direction: column;
       }
 
       .card-icon {
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
         border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 18px;
-        font-size: 22px;
+        font-size: 20px;
+        margin-bottom: 16px;
+        flex-shrink: 0;
       }
 
-      .card-icon.blue { background: rgba(26,143,255,0.15); }
-      .card-icon.teal { background: rgba(29,158,117,0.15); }
+      .icon-blue { background: rgba(26,143,255,0.15); }
+      .icon-teal { background: rgba(29,158,117,0.15); }
 
       .card h2 {
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 500;
-        color: #fff;
         margin-bottom: 8px;
       }
 
-      .card > p {
+      .card-desc {
         font-size: 13px;
-        color: rgba(255,255,255,0.5);
+        color: rgba(255,255,255,0.45);
         line-height: 1.6;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         flex: 1;
       }
 
       .features {
         list-style: none;
-        padding: 0;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 7px;
       }
 
       .features li {
         font-size: 12px;
-        color: rgba(255,255,255,0.55);
+        color: rgba(255,255,255,0.5);
         display: flex;
         align-items: center;
         gap: 8px;
       }
 
       .features li img {
-        width: 14px;
-        height: 14px;
+        width: 13px;
+        height: 13px;
         flex-shrink: 0;
       }
 
-      .btn-subscribe {
+      .btn-sub {
         display: block;
         text-align: center;
-        padding: 10px 0;
+        padding: 11px 0;
         border-radius: 8px;
         font-size: 13px;
         font-weight: 500;
         text-decoration: none;
+        margin-top: auto;
       }
 
-      .btn-subscribe.blue { background: #1a8fff; color: #fff; }
-      .btn-subscribe.teal { background: #1d9e75; color: #fff; }
+      .btn-blue { background: #1a8fff; color: #fff; }
+      .btn-teal { background: #1d9e75; color: #fff; }
 
+      /* FOOTER NOTE */
       .footer-note {
         text-align: center;
-        padding: 0 0 36px;
-      }
-
-      .footer-note p {
+        padding: 0 20px 32px;
         font-size: 12px;
-        color: rgba(255,255,255,0.35);
+        color: rgba(255,255,255,0.3);
       }
 
       .footer-note a {
-        color: rgba(255,255,255,0.55);
+        color: rgba(255,255,255,0.5);
         text-decoration: underline;
       }
 
-      .footer-bottom {
+      /* FOOTER */
+      footer {
         text-align: center;
-        padding: 20px 0;
+        padding: 20px;
         border-top: 0.5px solid rgba(255,255,255,0.07);
-        max-width: 860px;
-        margin: 0 auto;
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-
-      .footer-bottom p {
         font-size: 11px;
         color: rgba(255,255,255,0.2);
-      }
-
-      @media (max-width: 560px) {
-        .cards { grid-template-columns: 1fr; }
-        .hero h1 { font-size: 22px; }
       }
     </style>
 
@@ -218,7 +203,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       </div>
     </nav>
 
-    <main class="page-wrapper">
+    <main>
       <div class="hero">
         <h1>Your all-in-one streaming &amp; listening hub</h1>
         <p>Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.</p>
@@ -227,31 +212,31 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       <div class="cards">
 
         <div class="card">
-          <div class="card-icon blue">&#127916;</div>
+          <div class="card-icon icon-blue">&#127916;</div>
           <h2>Shark Valley Plex</h2>
-          <p>Unlimited movies and TV shows, new titles added daily. Available on all smart devices.</p>
+          <p class="card-desc">Unlimited movies and TV shows, new titles added daily. Available on all smart devices.</p>
           <ul class="features">
             <li><img src="/images/emoji_image.png" alt="" />Unlimited movies &amp; shows</li>
             <li><img src="/images/emoji_image.png" alt="" />New titles added daily</li>
             <li><img src="/images/emoji_image.png" alt="" />Request new content</li>
             <li><img src="/images/emoji_image.png" alt="" />All smart devices</li>
           </ul>
-          <a class="btn-subscribe blue" href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01" rel="noopener noreferrer">
+          <a class="btn-sub btn-blue" href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01" rel="noopener noreferrer">
             Subscribe to Plex
           </a>
         </div>
 
         <div class="card">
-          <div class="card-icon teal">&#127911;</div>
+          <div class="card-icon icon-teal">&#127911;</div>
           <h2>Audiobooks</h2>
-          <p>A growing library of audiobooks, available on demand. Listen anytime, anywhere.</p>
+          <p class="card-desc">A growing library of audiobooks, available on demand. Listen anytime, anywhere.</p>
           <ul class="features">
             <li><img src="/images/emoji_image.png" alt="" />Thousands of audiobooks</li>
             <li><img src="/images/emoji_image.png" alt="" />New titles added regularly</li>
             <li><img src="/images/emoji_image.png" alt="" />Request new titles</li>
             <li><img src="/images/emoji_image.png" alt="" />All smart devices</li>
           </ul>
-          <a class="btn-subscribe teal" href="YOUR_AUDIOBOOKS_STRIPE_LINK" rel="noopener noreferrer">
+          <a class="btn-sub btn-teal" href="YOUR_AUDIOBOOKS_STRIPE_LINK" rel="noopener noreferrer">
             Subscribe to Audiobooks
           </a>
         </div>
@@ -259,13 +244,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       </div>
 
       <div class="footer-note">
-        <p>Already a member? <a href="https://billing.stripe.com/p/login/aFadR9g1z8J9c08eWEfjG00">Manage billing</a></p>
+        Already a member? <a href="https://billing.stripe.com/p/login/aFadR9g1z8J9c08eWEfjG00">Manage billing</a>
       </div>
     </main>
 
-    <div class="footer-bottom">
+    <footer>
       <p>© 2026 Shark Valley Plex. All rights reserved.</p>
-    </div>
+    </footer>
 
   </body>
 </html>
