@@ -1,39 +1,216 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+const title = "Shark Valley Plex";
 ---
 
-<Layout
-  title="Frequently Asked Questions"
-  pubDate={undefined}
-  description="Lorem ipsum dolor sit amet"
-  heroImage="/blog-placeholder-about.jpg"
->
-  <section class="faq">
-    <h4>What is Plex?</h4>
-    <p>Plex is a free service that allows you to share your media. By subscribing to a membership, you are given access to my server, which includes thousands of Movies and TV Shows.</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Shark Valley Plex</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <h4>Where is Plex available?</h4>
-    <p>Plex is available in almost every country in the world. As long as you have internet access and a smart device, you will be able to access the server.</p>
+    body {
+      background-color: #111827;
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+    }
 
-    <h4>Where can I watch Plex?</h4>
-    <p>You can watch Plex instantly online from your personal computer or any internet-connected device that offers the Plex app. This includes Amazon Fire TV, Android TV, Apple TV, Chromecast, Roku, smart TVs (LG, Hisense, Samsung, VIZIO), smartphones, tablets, game consoles, and more.</p>
+    /* NAV */
+    nav {
+      background-color: #1f2937;
+      border-bottom: 1px solid #374151;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
 
-    <h4>How much does it cost?</h4>
-    <p>Memberships are currently priced at $10 per month.</p>
+    .nav-inner {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    <h4>How do I subscribe?</h4>
-    <p>Just click the <a href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01" style="color: #8380F5; font-weight: 600;">Subscribe</a> button on the home page. Once we receive confirmation, we will provide an account.</p>
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
 
-    <h4>Do I need an account?</h4>
-    <p>No, please do not make a Plex account. We will provide one for you.</p>
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
 
-    <h4>What if something I want to watch is not available?</h4>
-    <p>You can request any Movie or TV Show, and we will add it to our platform, usually within 24 hours.</p>
+    .nav-links a {
+      font-size: 14px;
+      color: #9ca3af;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
 
-    <h4>How many streams can I watch at once?</h4>
-    <p>Accounts are limited to 3 continous streams.</p>
+    .nav-links a:hover {
+      background: #374151;
+      color: #fff;
+    }
 
-    <h4>Are there any restrictions or rules?</h4>
-    <p>Please do not share your account with anyone outside of your household. If your friends are interested in the service, refer them here.</p>
-  </section>
-</Layout>
+    .btn-request {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff !important;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* PAGE */
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #f9fafb;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+
+    /* FAQ ITEMS */
+    .faq-item {
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .faq-item:hover { border-color: #4b5563; }
+
+    .faq-item h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #f3f4f6;
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.7;
+    }
+
+    .faq-item a {
+      color: #6366f1;
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1f2937;
+      border-top: 1px solid #374151;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; height: 56px; }
+      .nav-links { gap: 2px; }
+      .nav-links a { font-size: 12px; padding: 6px 8px; }
+      .btn-request { padding: 6px 12px; font-size: 13px; }
+      .page { padding: 32px 16px 48px; }
+      h1 { font-size: 24px; margin-bottom: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">
+        <img src="/images/os_logo_filled.png" alt="Shark Valley Plex" height="40" />
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/faq">FAQ</a>
+        <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
+        <a class="btn-request" href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">Request</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <h4>What is Plex?</h4>
+      <p>Plex is a free service that allows you to share your media. By subscribing to a membership, you are given access to my server, which includes thousands of Movies and TV Shows.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Where is Plex available?</h4>
+      <p>Plex is available in almost every country in the world. As long as you have internet access and a smart device, you will be able to access the server.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Where can I watch Plex?</h4>
+      <p>You can watch Plex instantly online from your personal computer or any internet-connected device that offers the Plex app. This includes Amazon Fire TV, Android TV, Apple TV, Chromecast, Roku, smart TVs (LG, Hisense, Samsung, VIZIO), smartphones, tablets, game consoles, and more.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>How much does it cost?</h4>
+      <p>Memberships are currently priced at $10 per month.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>How do I subscribe?</h4>
+      <p>Just click the <a href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01">Subscribe</a> button on the home page. Once we receive confirmation, we will provide an account.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Do I need an account?</h4>
+      <p>No, please do not make a Plex account. We will provide one for you.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>What if something I want to watch is not available?</h4>
+      <p>You can request any Movie or TV Show, and we will add it to our platform, usually within 24 hours.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>How many streams can I watch at once?</h4>
+      <p>Accounts are limited to 3 continuous streams.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Are there any restrictions or rules?</h4>
+      <p>Please do not share your account with anyone outside of your household. If your friends are interested in the service, refer them here.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Shark Valley Plex. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
