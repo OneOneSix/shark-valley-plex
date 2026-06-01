@@ -14,7 +14,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       body {
-        background: #0a0a0f;
+        background-color: #111827;
         color: #fff;
         font-family: system-ui, -apple-system, sans-serif;
         min-height: 100vh;
@@ -22,137 +22,173 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
       /* NAV */
       nav {
+        background-color: #1f2937;
+        border-bottom: 1px solid #374151;
+        padding: 0 24px;
+        height: 64px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 16px 20px;
-        border-bottom: 0.5px solid rgba(255,255,255,0.1);
+      }
+
+      .nav-inner {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
       .nav-logo {
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 17px;
+        font-weight: 600;
         color: #fff;
         text-decoration: none;
         white-space: nowrap;
+        letter-spacing: 0.01em;
       }
 
-      .nav-logo span { color: #8380F5; }
+      .nav-logo span {
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+        gap: 8px;
       }
 
       .nav-links a {
-        font-size: 13px;
-        color: rgba(255,255,255,0.6);
+        font-size: 14px;
+        color: #9ca3af;
         text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: background 0.15s, color 0.15s;
       }
 
-      .nav-links a:hover { color: #fff; }
+      .nav-links a:hover {
+        background: #374151;
+        color: #fff;
+      }
 
       .btn-request {
-        background: #1a8fff;
+        background: linear-gradient(135deg, #6366f1, #a855f7) !important;
         color: #fff !important;
-        padding: 6px 14px;
+        padding: 7px 16px !important;
         border-radius: 6px;
-        font-size: 13px;
+        font-size: 14px;
+        font-weight: 500;
         text-decoration: none;
         white-space: nowrap;
+      }
+
+      .btn-request:hover {
+        background: linear-gradient(135deg, #4f46e5, #9333ea) !important;
+      }
+
+      /* PAGE */
+      .page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 24px;
       }
 
       /* HERO */
       .hero {
         text-align: center;
-        padding: 48px 20px 32px;
+        padding: 64px 0 40px;
       }
 
       .hero h1 {
-        font-size: clamp(20px, 5vw, 28px);
-        font-weight: 500;
+        font-size: clamp(22px, 4vw, 32px);
+        font-weight: 700;
         line-height: 1.3;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
+        color: #f9fafb;
       }
 
       .hero p {
-        font-size: 14px;
-        color: rgba(255,255,255,0.5);
+        font-size: 15px;
+        color: #9ca3af;
         line-height: 1.7;
-        max-width: 380px;
+        max-width: 400px;
         margin: 0 auto;
       }
 
       /* CARDS */
       .cards {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 16px;
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 0 20px 40px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding-bottom: 48px;
       }
 
       .card {
-        background: #12121a;
-        border: 0.5px solid rgba(255,255,255,0.1);
-        border-radius: 14px;
-        padding: 24px 20px;
+        background: #1f2937;
+        border: 1px solid #374151;
+        border-radius: 12px;
+        padding: 28px 24px;
         display: flex;
         flex-direction: column;
+        transition: border-color 0.2s;
       }
 
+      .card:hover { border-color: #4b5563; }
+
       .card-icon {
-        width: 42px;
-        height: 42px;
+        width: 46px;
+        height: 46px;
         border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
-        margin-bottom: 16px;
+        font-size: 22px;
+        margin-bottom: 18px;
         flex-shrink: 0;
       }
 
-      .icon-blue { background: rgba(26,143,255,0.15); }
-      .icon-teal { background: rgba(29,158,117,0.15); }
+      .icon-indigo { background: rgba(99,102,241,0.15); }
+      .icon-teal   { background: rgba(20,184,166,0.15); }
 
       .card h2 {
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 17px;
+        font-weight: 600;
+        color: #f3f4f6;
         margin-bottom: 8px;
       }
 
       .card-desc {
         font-size: 13px;
-        color: rgba(255,255,255,0.45);
+        color: #6b7280;
         line-height: 1.6;
-        margin-bottom: 16px;
+        margin-bottom: 18px;
         flex: 1;
       }
 
       .features {
         list-style: none;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         display: flex;
         flex-direction: column;
-        gap: 7px;
+        gap: 8px;
       }
 
       .features li {
-        font-size: 12px;
-        color: rgba(255,255,255,0.5);
+        font-size: 13px;
+        color: #9ca3af;
         display: flex;
         align-items: center;
         gap: 8px;
       }
 
       .features li img {
-        width: 13px;
-        height: 13px;
+        width: 14px;
+        height: 14px;
         flex-shrink: 0;
       }
 
@@ -161,49 +197,71 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         text-align: center;
         padding: 11px 0;
         border-radius: 8px;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 500;
         text-decoration: none;
         margin-top: auto;
+        transition: opacity 0.15s;
       }
 
-      .btn-blue { background: #1a8fff; color: #fff; }
-      .btn-teal { background: #1d9e75; color: #fff; }
+      .btn-sub:hover { opacity: 0.9; }
+
+      .btn-indigo {
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        color: #fff;
+      }
+
+      .btn-teal {
+        background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+        color: #fff;
+      }
 
       /* FOOTER NOTE */
       .footer-note {
         text-align: center;
-        padding: 0 20px 32px;
-        font-size: 12px;
-        color: rgba(255,255,255,0.3);
+        padding: 0 0 40px;
+        font-size: 13px;
+        color: #4b5563;
       }
 
       .footer-note a {
-        color: rgba(255,255,255,0.5);
+        color: #6b7280;
         text-decoration: underline;
       }
 
+      .footer-note a:hover { color: #9ca3af; }
+
       /* FOOTER */
       footer {
+        background: #1f2937;
+        border-top: 1px solid #374151;
         text-align: center;
         padding: 20px;
-        border-top: 0.5px solid rgba(255,255,255,0.07);
-        font-size: 11px;
-        color: rgba(255,255,255,0.2);
+        font-size: 12px;
+        color: #4b5563;
+      }
+
+      @media (max-width: 520px) {
+        nav { padding: 0 16px; }
+        .page { padding: 0 16px; }
+        .hero { padding: 40px 0 28px; }
+        .nav-links a:not(.btn-request) { display: none; }
       }
     </style>
 
     <nav>
-      <a class="nav-logo" href="/">Shark Valley <span>Plex</span></a>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/faq">FAQ</a>
-        <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
-        <a class="btn-request" href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">Request</a>
+      <div class="nav-inner">
+        <a class="nav-logo" href="/">Shark Valley <span>Plex</span></a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/faq">FAQ</a>
+          <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
+          <a class="btn-request" href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">Request</a>
+        </div>
       </div>
     </nav>
 
-    <main>
+    <main class="page">
       <div class="hero">
         <h1>Your all-in-one streaming &amp; listening hub</h1>
         <p>Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.</p>
@@ -212,7 +270,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       <div class="cards">
 
         <div class="card">
-          <div class="card-icon icon-blue">&#127916;</div>
+          <div class="card-icon icon-indigo">&#127916;</div>
           <h2>Shark Valley Plex</h2>
           <p class="card-desc">Unlimited movies and TV shows, new titles added daily. Available on all smart devices.</p>
           <ul class="features">
@@ -221,7 +279,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             <li><img src="/images/emoji_image.png" alt="" />Request new content</li>
             <li><img src="/images/emoji_image.png" alt="" />All smart devices</li>
           </ul>
-          <a class="btn-sub btn-blue" href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01" rel="noopener noreferrer">
+          <a class="btn-sub btn-indigo" href="https://buy.stripe.com/eVq8wP16Fe3t8NWaGofjG01" rel="noopener noreferrer">
             Subscribe to Plex
           </a>
         </div>
