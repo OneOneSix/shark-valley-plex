@@ -300,7 +300,7 @@
       const text = el.textContent.trim();
       const suffix = text.replace(/[\d,]/g, ''); // e.g. "+"
       const target = parseInt(text.replace(/[^0-9]/g, ''), 10);
-      const duration = 1800;
+      const duration = 3000;
       const startTime = performance.now();
 
       function easeOutQuart(t) {
