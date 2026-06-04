@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shark Valley Plex</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,25 +35,32 @@
     }
 
     .nav-logo {
-      display: flex;
-      align-items: center;
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
       text-decoration: none;
-      flex-shrink: 0;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
     }
 
+    .nav-logo span {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     .nav-links {
       display: flex;
       align-items: center;
-      flex: 1;
-      justify-content: space-evenly;
+      gap: 4px;
     }
 
     .nav-links a {
-      font-size: 16px;
+      font-size: 14px;
       color: #9ca3af;
       text-decoration: none;
-      padding: 8px 14px;
+      padding: 6px 12px;
       border-radius: 6px;
       white-space: nowrap;
     }
@@ -64,51 +70,15 @@
       color: #fff;
     }
 
-    .nav-links a.active {
-      color: #fff;
-      border-bottom: 4px solid #6366f1;
-      border-radius: 0;
-      background: none;
-      padding-bottom: 4px;
-    }
-
     .btn-request {
       background: linear-gradient(135deg, #6366f1, #a855f7);
       color: #fff !important;
-      padding: 8px 18px;
+      padding: 7px 16px;
       border-radius: 6px;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       text-decoration: none;
       white-space: nowrap;
-    }
-
-    /* STATS */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      padding: 32px 24px 0;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 32px;
-      font-weight: 800;
-      color: #f9fafb;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     /* LOGO IMAGE */
@@ -118,7 +88,7 @@
     }
 
     .logo-img img {
-      max-width: 350px;
+      max-width: 200px;
       width: 100%;
       height: auto;
     }
@@ -157,7 +127,7 @@
       font-size: 15px;
       color: #9ca3af;
       line-height: 1.7;
-      max-width: 350px;
+      max-width: 420px;
       margin: 0 auto;
     }
 
@@ -282,11 +252,9 @@
     /* MOBILE */
     @media (max-width: 640px) {
       nav { padding: 0 16px; height: 56px; }
-      .stats { gap: 24px; padding: 24px 16px 0; }
-      .stat-number { font-size: 24px; }
       .nav-links { gap: 2px; }
-      .nav-links a { font-size: 14px; padding: 8px 10px; }
-      .btn-request { padding: 7px 14px; font-size: 14px; }
+      .nav-links a { font-size: 12px; padding: 6px 8px; }
+      .btn-request { padding: 6px 12px; font-size: 13px; }
       .logo-img { padding: 32px 16px 0; }
       .page { padding: 0 16px; }
       .hero { padding: 24px 0 28px; }
@@ -295,16 +263,14 @@
       .footer-note { padding: 0 0 32px; }
     }
   </style>
-  <script>document.addEventListener("astro:page-load", () => {});</script>
-  <style>@view-transition { navigation: auto; }</style>
 </head>
 <body>
 
   <nav>
     <div class="nav-inner">
-      <a class="nav-logo" href="/"><img src="/images/os_logo_filled.png" alt="Shark Valley Plex" height="28" /></a>
+      <a class="nav-logo" href="/">Shark Valley <span>Plex</span></a>
       <div class="nav-links">
-        <a href="/" class="active">Home</a>
+        <a href="/">Home</a>
         <a href="/faq">FAQ</a>
         <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
         <a class="btn-request" href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">Request</a>
@@ -321,24 +287,7 @@
     <div class="hero">
       <h1>Your All-in-One<span class="gradient">Streaming &amp; Listening Hub</span></h1>
       <p>Movies, TV shows, and audiobooks — all in one place. Subscribe to one or both services below.</p>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-number">3,000+</div>
-          <div class="stat-label">Movies</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">1,500+</div>
-          <div class="stat-label">TV Shows</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">100+</div>
-          <div class="stat-label">Audiobooks</div>
-        </div>
-      </div>
     </div>
-
-    <img src="/images/discover.jpg" alt="Discover Image" style="max-width: 100%; height: auto; display: block; margin: 2rem auto; border-radius: 12px;" />
 
     <div class="cards">
 
@@ -361,7 +310,7 @@
         <div class="card-icon icon-teal">
           <i class="ti ti-headphones" aria-hidden="true"></i>
         </div>
-        <h2>Shark Valley Audiobooks</h2>
+        <h2>Audiobooks</h2>
         <p class="card-desc">A curated library of audiobooks across every genre. Listen anytime, anywhere.</p>
         <ul class="features">
           <li><i class="ti ti-check teal" aria-hidden="true"></i> Unlimited Access to Audiobooks</li>
@@ -369,7 +318,7 @@
           <li><i class="ti ti-check teal" aria-hidden="true"></i> Request Audiobooks</li>
           <li><i class="ti ti-check teal" aria-hidden="true"></i> Available on All Smart Devices</li>
         </ul>
-        <a class="btn-sub btn-teal" href="https://buy.stripe.com/28E8wP4iR0cD1lucOwfjG02" rel="noopener noreferrer">Subscribe to Audiobooks</a>
+        <a class="btn-sub btn-teal" href="YOUR_AUDIOBOOKS_STRIPE_LINK" rel="noopener noreferrer">Subscribe to Audiobooks</a>
       </div>
 
     </div>
