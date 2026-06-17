@@ -86,7 +86,6 @@
       flex-shrink: 0;
     }
 
-
     .nav-links {
       display: flex;
       align-items: center;
@@ -116,6 +115,11 @@
       padding-bottom: 4px;
     }
 
+    /* REQUEST DROPDOWN */
+    .request-dropdown {
+      position: relative;
+    }
+
     .btn-request {
       background: linear-gradient(135deg, #6366f1, #a855f7);
       color: #fff !important;
@@ -123,9 +127,67 @@
       border-radius: 6px;
       font-size: 16px;
       font-weight: 500;
-      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       white-space: nowrap;
+      font-family: inherit;
     }
+
+    .btn-request i {
+      font-size: 13px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-request[aria-expanded="true"] i {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      min-width: 210px;
+      overflow: hidden;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .dropdown-menu.open {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 16px;
+      font-size: 14px;
+      color: #d1d5db;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: #374151;
+      color: #fff;
+    }
+
+    .dropdown-menu a:first-child {
+      border-bottom: 1px solid #374151;
+    }
+
+    .dropdown-menu a i {
+      font-size: 17px;
+    }
+
+    .dropdown-menu a:first-child i { color: #6366f1; }
+    .dropdown-menu a:last-child i  { color: #14b8a6; }
 
     /* STATS */
     .stats {
@@ -401,7 +463,19 @@
         <a href="/" class="active">Home</a>
         <a href="/faq">FAQ</a>
         <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
-        <a class="btn-request" href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">Request</a>
+        <div class="request-dropdown">
+          <button class="btn-request" onclick="toggleDropdown(event)" aria-haspopup="true" aria-expanded="false">
+            Request <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-device-tv" aria-hidden="true"></i> Movies &amp; TV Shows
+            </a>
+            <a href="https://audiobooks.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-headphones" aria-hidden="true"></i> Audiobooks
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -475,8 +549,25 @@
   </main>
 
   <footer>
-    <p>© 2026 Shark Valley Plex. All rights reserved.</p>
+    <p>&copy; 2026 Shark Valley Plex. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleDropdown(e) {
+      e.stopPropagation();
+      const menu = document.getElementById('dropdownMenu');
+      const btn = e.currentTarget;
+      const isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    }
+
+    document.addEventListener('click', () => {
+      const menu = document.getElementById('dropdownMenu');
+      const btn = document.querySelector('.request-dropdown .btn-request');
+      if (menu) menu.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  </script>
 
 </body>
 </html>
