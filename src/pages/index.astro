@@ -4,20 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shark Valley Plex</title>
-  <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-
-  <!-- Apple / iPhone -->
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
   <link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Shark Valley Plex" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-  <!-- Apple Splash Screens -->
   <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/images/apple-splash-640-1136.jpg" />
   <link rel="apple-touch-startup-image" media="screen and (device-width: 568px) and (device-height: 320px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/images/apple-splash-1136-640.jpg" />
   <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/images/apple-splash-750-1334.jpg" />
@@ -44,8 +39,6 @@
   <link rel="apple-touch-startup-image" media="screen and (device-width: 1080px) and (device-height: 810px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/images/apple-splash-2160-1620.jpg" />
   <link rel="apple-touch-startup-image" media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/images/apple-splash-2048-2732.jpg" />
   <link rel="apple-touch-startup-image" media="screen and (device-width: 1366px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/images/apple-splash-2732-2048.jpg" />
-
-  <!-- Android / PWA -->
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#111827" />
 
@@ -60,7 +53,6 @@
       min-height: 100vh;
     }
 
-    /* NAV */
     nav {
       background-color: #1f2937;
       border-bottom: 1px solid #374151;
@@ -118,31 +110,25 @@
     /* REQUEST DROPDOWN */
     .request-dropdown {
       position: relative;
+      display: inline-block;
     }
 
     .btn-request {
       background: linear-gradient(135deg, #6366f1, #a855f7);
-      color: #fff !important;
+      color: #fff;
       padding: 8px 18px;
       border-radius: 6px;
       font-size: 16px;
       font-weight: 500;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      text-decoration: none;
       white-space: nowrap;
-      font-family: inherit;
+      display: inline-block;
+      cursor: pointer;
     }
 
-    .btn-request i {
-      font-size: 13px;
-      transition: transform 0.2s ease;
-    }
-
-    .btn-request[aria-expanded="true"] i {
-      transform: rotate(180deg);
+    .btn-request:hover {
+      color: #fff;
+      background: linear-gradient(135deg, #5254cc, #9333ea);
     }
 
     .dropdown-menu {
@@ -171,6 +157,7 @@
       font-size: 14px;
       color: #d1d5db;
       text-decoration: none;
+      border-radius: 0;
     }
 
     .dropdown-menu a:hover {
@@ -197,9 +184,7 @@
       padding: 32px 24px 0;
     }
 
-    .stat {
-      text-align: center;
-    }
+    .stat { text-align: center; }
 
     .stat-number {
       font-size: 32px;
@@ -217,7 +202,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* LOGO IMAGE */
     .logo-img {
       text-align: center;
       padding: 48px 24px 0;
@@ -229,14 +213,12 @@
       height: auto;
     }
 
-    /* PAGE */
     .page {
       max-width: 960px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* HERO */
     .hero {
       text-align: center;
       padding: 32px 0 40px;
@@ -267,7 +249,6 @@
       margin: 0 auto;
     }
 
-    /* CARDS */
     .cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -360,7 +341,6 @@
       color: #fff;
     }
 
-    /* FOOTER NOTE */
     .footer-note {
       text-align: center;
       padding: 0 0 40px;
@@ -375,7 +355,6 @@
 
     .footer-note a:hover { color: #9ca3af; }
 
-    /* FOOTER */
     footer {
       background: #1f2937;
       border-top: 1px solid #374151;
@@ -385,7 +364,6 @@
       color: #4b5563;
     }
 
-    /* MOBILE */
     @media (max-width: 640px) {
       nav { padding: 0 16px; height: 56px; }
       .stats { gap: 24px; padding: 24px 16px 0; }
@@ -463,10 +441,8 @@
         <a href="/" class="active">Home</a>
         <a href="/faq">FAQ</a>
         <a href="https://stats.uptimerobot.com/9vb3fSvvMq" target="_blank" rel="noopener noreferrer">Status</a>
-        <div class="request-dropdown">
-          <button class="btn-request" onclick="toggleDropdown(event)" aria-haspopup="true" aria-expanded="false">
-            Request <i class="ti ti-chevron-down" aria-hidden="true"></i>
-          </button>
+        <div class="request-dropdown" id="requestDropdown">
+          <a class="btn-request" href="#" id="requestBtn">Request</a>
           <div class="dropdown-menu" id="dropdownMenu">
             <a href="https://request.sharkvalleyplex.com" target="_blank" rel="noopener noreferrer">
               <i class="ti ti-device-tv" aria-hidden="true"></i> Movies &amp; TV Shows
@@ -553,19 +529,19 @@
   </footer>
 
   <script>
-    function toggleDropdown(e) {
-      e.stopPropagation();
-      const menu = document.getElementById('dropdownMenu');
-      const btn = e.currentTarget;
-      const isOpen = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen);
-    }
+    const requestBtn = document.getElementById('requestBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
 
-    document.addEventListener('click', () => {
-      const menu = document.getElementById('dropdownMenu');
-      const btn = document.querySelector('.request-dropdown .btn-request');
-      if (menu) menu.classList.remove('open');
-      if (btn) btn.setAttribute('aria-expanded', 'false');
+    requestBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('open');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!document.getElementById('requestDropdown').contains(e.target)) {
+        dropdownMenu.classList.remove('open');
+      }
     });
   </script>
 
